@@ -7,7 +7,6 @@ public class SpawnBlock : MonoBehaviour {
     [Header("Game Objects")]
     public GameObject Player;
 
-
     [Header("Tile")]
     public Tilemap Tilemap;
     public Tile BlockTile;

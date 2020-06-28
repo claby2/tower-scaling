@@ -39,8 +39,9 @@ public class PlayerControl : MonoBehaviour {
     void Update() {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        if(jumpRemember > 0) 
+        if(jumpRemember > 0) {
             jumpRemember -= Time.deltaTime;  // Decrease jump timer 
+        }
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
             jumpRemember = jumpRememberTime; // Maximize jump timer
         }

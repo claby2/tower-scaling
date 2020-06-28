@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundHitbox : MonoBehaviour {
-    
+    [Header("States")]
     public bool IsColliding = false;
 
     void OnTriggerEnter2D(Collider2D collision) {

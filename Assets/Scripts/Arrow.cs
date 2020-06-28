@@ -11,7 +11,7 @@ public class Arrow : MonoBehaviour {
     private float arrowSpeed = 50f;
 
     [Header("States")]
-    private int boundariesExited = 0;  // If this value is >= 2, it means the boundary opposite to the original position has been hit
+    private int boundariesExited = 0;
 
     void Start() {
         RigidBody.velocity = new Vector2(Direction * arrowSpeed, RigidBody.velocity.y);
@@ -27,6 +27,7 @@ public class Arrow : MonoBehaviour {
         if(collision.CompareTag("Boundary")) {
             boundariesExited++;
             if(boundariesExited >= 2) {
+                // Only destroy after two (or more) boundaries have been exited as arrows spawn inside a boundary
                 Destroy(gameObject);
             }
         }
