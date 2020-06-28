@@ -10,10 +10,14 @@ public class CameraFollow : MonoBehaviour {
     [Header("Smoothing")]
     private float smoothing = 0.1f;
 
-    void FixedUpdate() {
+    void Follow() {
+        Vector3 targetPosition = new Vector3(0, Player.transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
+    }
+
+    void LateUpdate() {
         if(transform.position != Player.transform.position) {
-            Vector3 targetPosition = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
+            Follow();
         }
     }
 }

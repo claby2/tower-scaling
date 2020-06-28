@@ -14,10 +14,9 @@ public class PlayerTriggerHitbox : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.CompareTag("Hostile")) {
+        if(collision.CompareTag("Hostile") || collision.CompareTag("Boundary")) {
             _player.GoToCheckpoint();
         }
     }
-
 
 }

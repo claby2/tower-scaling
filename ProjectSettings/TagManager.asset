@@ -7,6 +7,8 @@ TagManager:
   - Level
   - Weapon Item
   - Hostile
+  - Checkpoint
+  - Boundary
   layers:
   - Default
   - TransparentFX

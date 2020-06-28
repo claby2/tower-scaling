@@ -8,6 +8,8 @@ public class PlayerControl : MonoBehaviour {
 
     [Header("Objects")]
     public GameObject GroundHitbox;
+    public GameObject DeadPlayers;
+    public GameObject DeadPlayer;
 
     [Header("Player States")]
     public bool hasWeapon = false;
@@ -25,6 +27,8 @@ public class PlayerControl : MonoBehaviour {
     private GroundHitbox _groundHitbox;
 
     public void GoToCheckpoint() {
+        GameObject deadPlayer = Instantiate(DeadPlayer, transform.position, Quaternion.identity);
+        deadPlayer.transform.parent = DeadPlayers.transform;
         transform.position = LastCheckpoint;
     }
 

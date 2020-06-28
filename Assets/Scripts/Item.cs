@@ -24,6 +24,9 @@ public class Item : MonoBehaviour {
             if(gameObject.tag == "Weapon Item") {
                 _player.hasWeapon = true;
             }
+            if(gameObject.tag == "Checkpoint") {
+                _player.LastCheckpoint = transform.position;
+            }
             Destroy(gameObject);
         }
     }
