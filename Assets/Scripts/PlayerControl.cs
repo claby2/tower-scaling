@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour {
     public GameObject GroundHitbox;
     public GameObject DeadPlayers;
     public GameObject DeadPlayer;
+    public GameObject ControlText;
 
     [Header("Player States")]
     public bool hasWeapon = false;
@@ -25,6 +26,7 @@ public class PlayerControl : MonoBehaviour {
 
     [Header("Object Scripts")]
     private GroundHitbox _groundHitbox;
+    public ControlText _controlText;
 
     public void GoToCheckpoint() {
         GameObject deadPlayer = Instantiate(DeadPlayer, transform.position, Quaternion.identity);
@@ -34,6 +36,7 @@ public class PlayerControl : MonoBehaviour {
 
     void Start() {
         _groundHitbox = GroundHitbox.GetComponent<GroundHitbox>();
+        _controlText = ControlText.GetComponent<ControlText>();
     }
 
     void Update() {
@@ -48,6 +51,10 @@ public class PlayerControl : MonoBehaviour {
         if(jumpRemember > 0 && _groundHitbox.IsColliding) {
             jumpRemember = 0;                // Make sure player cannot jump straight away after
             executeJump = true;
+        }
+
+        if(hasWeapon && !_controlText.isVisible) {
+            _controlText.ShowText();
         }
     }
 
